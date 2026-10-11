@@ -1,0 +1,348 @@
+/* ==========================================================================
+   AURA SALON — DESIGN TOKENS & GLOBAL RESET
+   Modern Luxury Editorial Salon Website
+   ========================================================================== */
+
+:root {
+  /* Color Palette */
+  --color-ivory: #F8F5F0;
+  --color-white: #FFFFFF;
+  --color-espresso: #29231F;
+  --color-gold: #B89B72;
+  --color-gold-hover: #A0835D;
+  --color-gold-light: #F4EFEA;
+  --color-taupe: #D9CEC2;
+  --color-taupe-light: #EFE9E0;
+  --color-taupe-border: #E5DDD3;
+  --color-charcoal: #3A3430;
+  --color-charcoal-light: #4A433E;
+  --color-muted-text: #6A6059;
+  --color-subtle-text: #8E837A;
+
+  /* Typography */
+  --font-serif: 'Cormorant Garamond', Garamond, Georgia, serif;
+  --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Spacing Scale */
+  --space-xs: 0.25rem;  /* 4px */
+  --space-sm: 0.5rem;   /* 8px */
+  --space-md: 1rem;     /* 16px */
+  --space-lg: 1.5rem;   /* 24px */
+  --space-xl: 2.5rem;   /* 40px */
+  --space-2xl: 4rem;    /* 64px */
+  --space-3xl: 6rem;    /* 96px */
+  --space-4xl: 8rem;    /* 128px */
+
+  /* Layout */
+  --container-max: 1240px;
+  --container-narrow: 920px;
+  --header-height: 84px;
+
+  /* Elevation / Shadows (Delicate, never heavy) */
+  --shadow-subtle: 0 4px 20px rgba(41, 35, 31, 0.04);
+  --shadow-card: 0 10px 30px rgba(41, 35, 31, 0.06);
+  --shadow-modal: 0 24px 60px rgba(41, 35, 31, 0.16);
+
+  /* Transitions */
+  --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Radii (Restrained, subtle refinement, no pill/bubble excess) */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+}
+
+/* CSS Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-height);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-ivory);
+  color: var(--color-espresso);
+  line-height: 1.65;
+  font-weight: 400;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Focus Outline for Accessibility */
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+/* Typography Defaults */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  color: var(--color-espresso);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+  font-weight: 400;
+}
+
+h2 {
+  font-size: clamp(2rem, 3.8vw, 3.25rem);
+  font-weight: 400;
+}
+
+h3 {
+  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+  font-weight: 500;
+}
+
+h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+p {
+  color: var(--color-muted-text);
+  font-size: 1rem;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  transition: all var(--transition-fast);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+input, select, textarea {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(1.25rem, 4vw, 2.5rem);
+  padding-right: clamp(1.25rem, 4vw, 2.5rem);
+}
+
+.container-narrow {
+  width: 100%;
+  max-width: var(--container-narrow);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(1.25rem, 4vw, 2.5rem);
+  padding-right: clamp(1.25rem, 4vw, 2.5rem);
+}
+
+/* Section Spacing */
+.section {
+  padding-top: clamp(4rem, 8vw, 7.5rem);
+  padding-bottom: clamp(4rem, 8vw, 7.5rem);
+  position: relative;
+}
+
+.section-taupe {
+  background-color: var(--color-taupe-light);
+}
+
+.section-white {
+  background-color: var(--color-white);
+}
+
+.section-dark {
+  background-color: var(--color-charcoal);
+  color: var(--color-ivory);
+}
+
+.section-dark h1,
+.section-dark h2,
+.section-dark h3,
+.section-dark h4 {
+  color: var(--color-ivory);
+}
+
+.section-dark p {
+  color: rgba(248, 245, 240, 0.75);
+}
+
+/* Editorial Subheaders & Eyebrows */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 1rem;
+}
+
+.eyebrow-line {
+  display: inline-block;
+  width: 24px;
+  height: 1px;
+  background-color: var(--color-gold);
+}
+
+.section-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto clamp(2.5rem, 5vw, 4rem);
+}
+
+.section-header.text-left {
+  text-align: left;
+  margin-left: 0;
+}
+
+.section-subtitle {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-top: 1rem;
+  color: var(--color-muted-text);
+}
+
+/* Luxury Button System */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.95rem 1.9rem;
+  border-radius: var(--radius-xs);
+  transition: all var(--transition-smooth);
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background-color: var(--color-espresso);
+  color: var(--color-ivory);
+  border: 1px solid var(--color-espresso);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-gold);
+  border-color: var(--color-gold);
+  color: var(--color-white);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(184, 155, 114, 0.25);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-espresso);
+  border: 1px solid var(--color-taupe);
+}
+
+.btn-secondary:hover {
+  border-color: var(--color-espresso);
+  background-color: var(--color-espresso);
+  color: var(--color-ivory);
+  transform: translateY(-2px);
+}
+
+.btn-gold {
+  background-color: var(--color-gold);
+  color: var(--color-white);
+  border: 1px solid var(--color-gold);
+}
+
+.btn-gold:hover {
+  background-color: var(--color-gold-hover);
+  border-color: var(--color-gold-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(184, 155, 114, 0.3);
+}
+
+.btn-outline-white {
+  background-color: transparent;
+  color: var(--color-ivory);
+  border: 1px solid rgba(248, 245, 240, 0.4);
+}
+
+.btn-outline-white:hover {
+  background-color: var(--color-ivory);
+  color: var(--color-espresso);
+  border-color: var(--color-ivory);
+}
+
+.btn-sm {
+  padding: 0.65rem 1.25rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+}
+
+/* Subtle decorative line */
+.divider-taupe {
+  height: 1px;
+  background-color: var(--color-taupe-border);
+  width: 100%;
+}
+
+/* Scrollbar Customization */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-ivory);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-taupe);
+  border-radius: var(--radius-xs);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold);
+}
+
+/* Reduced Motion Mode */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
